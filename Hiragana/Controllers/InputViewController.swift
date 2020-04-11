@@ -4,15 +4,13 @@
 //
 //  Created by ryo on 2020/04/10.
 //  Copyright © 2020 ryo. All rights reserved.
-//
+// 67adc60cdbf63dfaea3cf13494fa0c3b11e3027a7ad9d878b80430b8ba700bb8
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate {
+class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
-    @IBOutlet weak var outputTextView: UITextView!
-    @IBOutlet weak var convertButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +18,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         inputTextView.delegate = self
     }
     
-    @IBAction func convertPressed(_ sender: Any) {
-        inputTextView.endEditing(true)
-        print(inputTextView.text!)
+    @IBAction func convertPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToOutput", sender: self)
     }
     
 
