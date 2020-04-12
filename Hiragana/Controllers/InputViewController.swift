@@ -12,6 +12,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
     
+    var hiraganaManager = HiraganaManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,12 @@ class InputViewController: UIViewController, UITextViewDelegate {
             textView.resignFirstResponder()
         }
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let words = inputTextView.text {
+            hiraganaManager.fetchHiragana(RequestWords: words)
+        }
     }
 }
 

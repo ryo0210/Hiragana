@@ -13,6 +13,9 @@
 		2A5944AD24403380005CF7B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A5944AB24403380005CF7B8 /* Main.storyboard */; };
 		2A5944AF24403384005CF7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5944AE24403384005CF7B8 /* Assets.xcassets */; };
 		2A5944B224403384005CF7B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A5944B024403384005CF7B8 /* LaunchScreen.storyboard */; };
+		2A6456B02441BD9B00347FE8 /* HiragaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6456AF2441BD9B00347FE8 /* HiragaManager.swift */; };
+		2A6456B22442007100347FE8 /* HiraganaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6456B12442007100347FE8 /* HiraganaData.swift */; };
+		2A6456B62442B2AF00347FE8 /* RequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6456B52442B2AF00347FE8 /* RequestParams.swift */; };
 		2A78071924419F010037FB52 /* OutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A78071824419F010037FB52 /* OutputViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		2A5944AE24403384005CF7B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A5944B124403384005CF7B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A5944B324403384005CF7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A6456AF2441BD9B00347FE8 /* HiragaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiragaManager.swift; sourceTree = "<group>"; };
+		2A6456B12442007100347FE8 /* HiraganaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiraganaData.swift; sourceTree = "<group>"; };
+		2A6456B52442B2AF00347FE8 /* RequestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParams.swift; sourceTree = "<group>"; };
 		2A78071824419F010037FB52 /* OutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,15 +64,34 @@
 		2A5944A424403380005CF7B8 /* Hiragana */ = {
 			isa = PBXGroup;
 			children = (
+				2A6456AE2441BD6C00347FE8 /* Models */,
 				2A5944A524403380005CF7B8 /* AppDelegate.swift */,
 				2A5944A724403380005CF7B8 /* SceneDelegate.swift */,
 				2A78071324419CBD0037FB52 /* Controllers */,
-				2A5944AB24403380005CF7B8 /* Main.storyboard */,
+				2A6456AD2441BD5F00347FE8 /* Views */,
 				2A5944AE24403384005CF7B8 /* Assets.xcassets */,
 				2A5944B024403384005CF7B8 /* LaunchScreen.storyboard */,
 				2A5944B324403384005CF7B8 /* Info.plist */,
 			);
 			path = Hiragana;
+			sourceTree = "<group>";
+		};
+		2A6456AD2441BD5F00347FE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A5944AB24403380005CF7B8 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A6456AE2441BD6C00347FE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A6456AF2441BD9B00347FE8 /* HiragaManager.swift */,
+				2A6456B12442007100347FE8 /* HiraganaData.swift */,
+				2A6456B52442B2AF00347FE8 /* RequestParams.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2A78071324419CBD0037FB52 /* Controllers */ = {
@@ -151,6 +176,9 @@
 			files = (
 				2A5944AA24403380005CF7B8 /* InputViewController.swift in Sources */,
 				2A78071924419F010037FB52 /* OutputViewController.swift in Sources */,
+				2A6456B22442007100347FE8 /* HiraganaData.swift in Sources */,
+				2A6456B02441BD9B00347FE8 /* HiragaManager.swift in Sources */,
+				2A6456B62442B2AF00347FE8 /* RequestParams.swift in Sources */,
 				2A5944A624403380005CF7B8 /* AppDelegate.swift in Sources */,
 				2A5944A824403380005CF7B8 /* SceneDelegate.swift in Sources */,
 			);

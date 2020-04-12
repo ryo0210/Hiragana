@@ -8,28 +8,28 @@
 
 import UIKit
 
-class OutputViewController: UIViewController {
+class OutputViewController: UIViewController, HiraganaManagerDelegate {
 
     @IBOutlet weak var outputTextView: UITextView!
     
+    var hiraganaManager = HiraganaManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        hiraganaManager.delegate = self
     }
     
     @IBAction func reinputPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func didUpdateWords(words: String) {
+        DispatchQueue.main.async {
+            self.outputTextView.text = words
+        }
     }
-    */
+    func didFailWithError(error: Error) {
+        print(error)
+    }
 
 }
