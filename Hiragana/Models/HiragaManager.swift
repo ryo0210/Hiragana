@@ -15,7 +15,7 @@ protocol HiraganaManagerDelegate {
 
 struct HiraganaManager {
     let hiraganaURL = "https://labs.goo.ne.jp/api/hiragana"
-    let app_id = "app_id"
+    let app_id = "API_Calls"
     
     var delegate: HiraganaManagerDelegate?
 
