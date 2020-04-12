@@ -64,11 +64,11 @@
 		2A5944A424403380005CF7B8 /* Hiragana */ = {
 			isa = PBXGroup;
 			children = (
-				2A6456AE2441BD6C00347FE8 /* Models */,
-				2A5944A524403380005CF7B8 /* AppDelegate.swift */,
 				2A5944A724403380005CF7B8 /* SceneDelegate.swift */,
-				2A78071324419CBD0037FB52 /* Controllers */,
+				2A5944A524403380005CF7B8 /* AppDelegate.swift */,
+				2A6456AE2441BD6C00347FE8 /* Models */,
 				2A6456AD2441BD5F00347FE8 /* Views */,
+				2A78071324419CBD0037FB52 /* Controllers */,
 				2A5944AE24403384005CF7B8 /* Assets.xcassets */,
 				2A5944B024403384005CF7B8 /* LaunchScreen.storyboard */,
 				2A5944B324403384005CF7B8 /* Info.plist */,

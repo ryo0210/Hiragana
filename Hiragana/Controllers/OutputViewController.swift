@@ -8,7 +8,9 @@
 
 import UIKit
 
-class OutputViewController: UIViewController, HiraganaManagerDelegate {
+class OutputViewController: UIViewController {
+    
+    var hiragana: String?
 
     @IBOutlet weak var outputTextView: UITextView!
     
@@ -16,20 +18,16 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hiraganaManager.delegate = self
+        
+//        DispatchQueue.main.async {
+//            self.outputTextView.text = self.hiragana
+//        }
+        outputTextView.text = hiragana
+        
     }
     
     @IBAction func reinputPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    func didUpdateWords(words: String) {
-        DispatchQueue.main.async {
-            self.outputTextView.text = words
-        }
-    }
-    func didFailWithError(error: Error) {
-        print(error)
-    }
-
 }
