@@ -18,8 +18,9 @@ struct HiraganaManager {
     var delegate: HiraganaManagerDelegate?
     
     let hiraganaURL = "https://labs.goo.ne.jp/api/hiragana"
-    let app_id = "api"
 
+    let app_id = ProcessInfo.processInfo.environment["API_key"]!
+    
     func fetchHiragana(RequestWords: String) {
         let url = URL(string: hiraganaURL)!
         var request = URLRequest(url: url)
