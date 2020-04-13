@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputViewController: UIViewController, UITextViewDelegate, HiraganaManagerDelegate {
+class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
     
@@ -18,15 +18,15 @@ class InputViewController: UIViewController, UITextViewDelegate, HiraganaManager
         super.viewDidLoad()
         
         inputTextView.delegate = self
-        hiraganaManager.delegate = self
+    }
+    
+    // TextView以外の部分をタップするとキーボードが閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func convertPressed(_ sender: UIButton) {
-        print("1-------------")
         inputTextView.endEditing(true)
-        if let words = inputTextView.text {
-            hiraganaManager.fetchHiragana(RequestWords: words)
-        }
         performSegue(withIdentifier: "goToOutput", sender: self)
     }
     
@@ -34,34 +34,13 @@ class InputViewController: UIViewController, UITextViewDelegate, HiraganaManager
         if (text == "\n") {
             textView.resignFirstResponder()
         }
-        print("3-------------")
         return true
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        print("4-------------")
-        if let words = inputTextView.text {
-            hiraganaManager.fetchHiragana(RequestWords: words)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToOutput" {
             let destinationVC = segue.destination as! OutputViewController
-            if hira != nil {
-                destinationVC.hiragana = hira
-            }
+            destinationVC.hiragana = inputTextView.text
         }
     }
-    
-    func didUpdateWords(words: String) {
-//        DispatchQueue.main.async {
-//            self.inputTextView.text = words
-//        }
-        hira = words
-    }
-    func didFailWithError(error: Error) {
-        print(error)
-    }
 }
-
