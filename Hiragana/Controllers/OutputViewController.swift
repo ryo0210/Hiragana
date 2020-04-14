@@ -13,6 +13,7 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
     var hiragana: String?
 
     @IBOutlet weak var outputTextView: UITextView!
+    @IBOutlet weak var copyLabel: UILabel!
     
     var hiraganaManager = HiraganaManager()
     override func viewDidLoad() {
@@ -28,6 +29,10 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
     
     @IBAction func copyPressed(_ sender: UIButton) {
         UIPasteboard.general.string = outputTextView.text
+        copyLabel.text = "コピーしました。"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.copyLabel.text = ""
+        }
     }
     
     
