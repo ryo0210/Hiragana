@@ -18,6 +18,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         inputTextView.delegate = self
+        
+        // フォントのバグ対策
+        inputTextView.font = UIFont.systemFont(ofSize: 20.0)
     }
     
     // TextView以外の部分をタップするとキーボードが閉じる

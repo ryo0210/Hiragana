@@ -64,6 +64,7 @@
 		2A5944A424403380005CF7B8 /* Hiragana */ = {
 			isa = PBXGroup;
 			children = (
+				2A762BC924442EB200E4A44A /* asset */,
 				2A5944A724403380005CF7B8 /* SceneDelegate.swift */,
 				2A5944A524403380005CF7B8 /* AppDelegate.swift */,
 				2A6456AE2441BD6C00347FE8 /* Models */,
@@ -92,6 +93,13 @@
 				2A6456B52442B2AF00347FE8 /* RequestParams.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2A762BC924442EB200E4A44A /* asset */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = asset;
 			sourceTree = "<group>";
 		};
 		2A78071324419CBD0037FB52 /* Controllers */ = {

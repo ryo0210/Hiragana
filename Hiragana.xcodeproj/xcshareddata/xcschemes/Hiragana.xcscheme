@@ -50,13 +50,6 @@
             ReferencedContainer = "container:Hiragana.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "API_key"
-            value = "67adc60cdbf63dfaea3cf13494fa0c3b11e3027a7ad9d878b80430b8ba700bb8"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
