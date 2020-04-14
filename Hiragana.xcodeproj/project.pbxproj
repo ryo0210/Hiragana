@@ -31,7 +31,6 @@
 		2A6456AF2441BD9B00347FE8 /* HiragaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiragaManager.swift; sourceTree = "<group>"; };
 		2A6456B12442007100347FE8 /* HiraganaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiraganaData.swift; sourceTree = "<group>"; };
 		2A6456B52442B2AF00347FE8 /* RequestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParams.swift; sourceTree = "<group>"; };
-		2A762BCC24442FF000E4A44A /* Pink, Blue and Cream Summer Tutor Flyer.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Pink, Blue and Cream Summer Tutor Flyer.pdf"; sourceTree = "<group>"; };
 		2A78071824419F010037FB52 /* OutputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +71,6 @@
 				2A6456AD2441BD5F00347FE8 /* Views */,
 				2A78071324419CBD0037FB52 /* Controllers */,
 				2A5944AE24403384005CF7B8 /* Assets.xcassets */,
-				2A762BCC24442FF000E4A44A /* Pink, Blue and Cream Summer Tutor Flyer.pdf */,
 				2A5944B024403384005CF7B8 /* LaunchScreen.storyboard */,
 				2A5944B324403384005CF7B8 /* Info.plist */,
 			);
