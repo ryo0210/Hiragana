@@ -31,6 +31,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func convertPressed(_ sender: UIButton) {
         if inputTextView.text == "" {
             attentionLabel.text = "なにかにゅうりょくしてください。"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.attentionLabel.text = ""
+            }
         } else {
             inputTextView.endEditing(true)
             performSegue(withIdentifier: "goToOutput", sender: self)
@@ -53,6 +56,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func trashPressed(_ sender: UIButton) {
         if inputTextView.text == "" {
             attentionLabel.text = "けすもじがありません。"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.attentionLabel.text = ""
+            }
         } else {
             inputTextView.text = ""
         }
@@ -61,6 +67,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
         inputTextView.text = UIPasteboard.general.string
         if inputTextView.text == "" {
             attentionLabel.text = "ペーストするもじがありません。"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.attentionLabel.text = ""
+            }
         } else {
             inputTextView.endEditing(true)
             performSegue(withIdentifier: "goToOutput", sender: self)

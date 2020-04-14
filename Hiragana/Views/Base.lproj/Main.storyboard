@@ -79,16 +79,16 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEw-q1-bba">
-                                <rect key="frame" x="25" y="110" width="364" height="22"/>
+                                <rect key="frame" x="25" y="112" width="364" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="B19-2Y-Woo"/>
+                                    <constraint firstAttribute="height" constant="16" id="B19-2Y-Woo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="日本語だよ。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0cC-ab-Flu" userLabel="outputTextView">
-                                <rect key="frame" x="25" y="132.00000000000003" width="364" height="303.66666666666674"/>
+                                <rect key="frame" x="25" y="128.00000000000003" width="364" height="307.66666666666674"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -97,11 +97,12 @@
                         </subviews>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fEw-q1-bba" firstAttribute="top" secondItem="tYE-SF-xi7" secondAttribute="bottom" id="4cE-oc-EgG"/>
+                            <constraint firstItem="fEw-q1-bba" firstAttribute="top" secondItem="tYE-SF-xi7" secondAttribute="bottom" constant="2" id="4cE-oc-EgG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fEw-q1-bba" secondAttribute="trailing" constant="25" id="9ix-Xm-2MG"/>
                             <constraint firstItem="0cC-ab-Flu" firstAttribute="top" secondItem="fEw-q1-bba" secondAttribute="bottom" id="JCL-hK-hOc"/>
                             <constraint firstItem="tYE-SF-xi7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JgY-Qt-CFN"/>
                             <constraint firstItem="F8i-bj-tmp" firstAttribute="top" secondItem="0cC-ab-Flu" secondAttribute="bottom" constant="25" id="KyA-dl-gbh"/>
+                            <constraint firstItem="0cC-ab-Flu" firstAttribute="top" secondItem="fEw-q1-bba" secondAttribute="bottom" id="Lai-ev-kq5"/>
                             <constraint firstItem="0cC-ab-Flu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Rin-hP-Xkk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0cC-ab-Flu" secondAttribute="trailing" constant="25" id="Sul-AH-adU"/>
                             <constraint firstItem="tYE-SF-xi7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="XKm-lp-MwF"/>
