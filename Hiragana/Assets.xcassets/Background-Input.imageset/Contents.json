@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "青、抽象的・図形、引用、ストーリー-9.pdf",
+      "filename" : "Hiragana-BG-IN-light-1.pdf",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "青、抽象的・図形、引用、ストーリー-7.pdf",
+      "filename" : "Hiragana-BG-IN-light.pdf",
       "idiom" : "universal"
     },
     {
@@ -21,7 +21,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "青、抽象的・図形、引用、ストーリー-8.pdf",
+      "filename" : "Hiragana-BG-IN-dark.pdf",
       "idiom" : "universal"
     }
   ],

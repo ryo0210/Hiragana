@@ -34,17 +34,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="F8i-bj-tmp">
-                                <rect key="frame" x="49" y="460.66666666666669" width="316" height="45"/>
+                                <rect key="frame" x="52" y="460.66666666666669" width="310.33333333333331" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xpz-ie-Auc">
-                                        <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40.666666666666664" height="45"/>
                                         <color key="tintColor" name="ButtonColor-Light"/>
-                                        <state key="normal" image="delete.left" catalog="system">
+                                        <state key="normal" image="trash" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large" weight="light"/>
                                         </state>
+                                        <connections>
+                                            <action selector="trashPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXN-tB-TBa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riX-PS-pqV">
-                                        <rect key="frame" x="60.333333333333314" y="0.0" width="200" height="45"/>
+                                        <rect key="frame" x="54.666666666666686" y="0.0" width="200" height="45"/>
                                         <color key="backgroundColor" name="ConvertButtonColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="EFc-fh-kjd"/>
@@ -53,7 +56,7 @@
                                             <constraint firstAttribute="height" constant="45" id="lOW-kM-Rrw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                        <state key="normal" title="CONVERT">
+                                        <state key="normal" title="ひらがなにする">
                                             <color key="titleColor" name="ConvertTextColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -67,12 +70,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6f-0H-8HF">
-                                        <rect key="frame" x="274.33333333333331" y="0.0" width="41.666666666666686" height="45"/>
+                                        <rect key="frame" x="268.66666666666669" y="0.0" width="41.666666666666686" height="45"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                         <color key="tintColor" name="ButtonColor-Light"/>
                                         <state key="normal" image="doc.on.clipboard" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27" scale="large" weight="light"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pastePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aHC-uZ-RMd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -101,6 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="attentionLabel" destination="0cC-ab-Flu" id="Hes-Pc-y1k"/>
                         <outlet property="inputTextView" destination="0cC-ab-Flu" id="IBt-mz-vSP"/>
                         <segue destination="F3c-g5-0mK" kind="show" identifier="goToOutput" id="wyO-TP-qUW"/>
                     </connections>
@@ -168,6 +175,9 @@
                                 <state key="normal" image="doc.text" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="29" scale="large" weight="light"/>
                                 </state>
+                                <connections>
+                                    <action selector="copyPressed:" destination="F3c-g5-0mK" eventType="touchUpInside" id="dYG-je-xLD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -201,11 +211,11 @@
     <resources>
         <image name="Background-Input" width="810" height="1440"/>
         <image name="Background-Output" width="810" height="1440"/>
-        <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="doc.on.clipboard" catalog="system" width="117" height="128"/>
         <image name="doc.text" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="BackgroundColor">
-            <color red="0.99979656930000005" green="1" blue="0.93842369319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="0.93800002336502075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ButtonColor-Light">
             <color red="0.28099998831748962" green="0.40000000596046448" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

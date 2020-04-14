@@ -26,6 +26,11 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func copyPressed(_ sender: UIButton) {
+        UIPasteboard.general.string = outputTextView.text
+    }
+    
+    
     func didUpdateWords(words: String) {
         DispatchQueue.main.async {
             self.outputTextView.text = words

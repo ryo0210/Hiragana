@@ -10,9 +10,9 @@ import UIKit
 class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var attentionLabel: UITextView!
     
     var hiraganaManager = HiraganaManager()
-    var hira: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,12 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func convertPressed(_ sender: UIButton) {
-        inputTextView.endEditing(true)
-        performSegue(withIdentifier: "goToOutput", sender: self)
+        if inputTextView.text == "" {
+            attentionLabel.text = "なにかにゅうりょくしてください。"
+        } else {
+            inputTextView.endEditing(true)
+            performSegue(withIdentifier: "goToOutput", sender: self)
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -46,4 +50,21 @@ class InputViewController: UIViewController, UITextViewDelegate {
             destinationVC.hiragana = inputTextView.text
         }
     }
+    @IBAction func trashPressed(_ sender: UIButton) {
+        if inputTextView.text == "" {
+            attentionLabel.text = "けすもじがありません。"
+        } else {
+            inputTextView.text = ""
+        }
+    }
+    @IBAction func pastePressed(_ sender: UIButton) {
+        inputTextView.text = UIPasteboard.general.string
+        if inputTextView.text == "" {
+            attentionLabel.text = "ペーストするもじがありません。"
+        } else {
+            inputTextView.endEditing(true)
+            performSegue(withIdentifier: "goToOutput", sender: self)
+        }
+    }
+    
 }
