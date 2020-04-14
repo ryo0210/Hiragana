@@ -10,7 +10,7 @@ import UIKit
 class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
-    @IBOutlet weak var attentionLabel: UITextView!
+    @IBOutlet weak var attentionLabel: UILabel!
     
     var hiraganaManager = HiraganaManager()
     
