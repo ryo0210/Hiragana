@@ -11,6 +11,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var attentionLabel: UILabel!
+    @IBOutlet weak var shadowView: UIView!
     
     var hiraganaManager = HiraganaManager()
     
@@ -21,6 +22,20 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
         // フォントのバグ対策
         inputTextView.font = UIFont.systemFont(ofSize: 20.0)
+        
+        inputTextView.clipsToBounds = true
+        shadowView.layer.cornerRadius = 10
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOffset = .zero
+        shadowView.layer.shadowOpacity = 0.3
+        shadowView.layer.shadowRadius = 4
+        //self.view.addSubview(shadowView)
+        //inputTextView.addSubview(shadowView)
+//        inputTextView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+//        inputTextView.layer.shadowColor = UIColor.black.cgColor
+//        inputTextView.layer.shadowOpacity = 0.6
+//        inputTextView.layer.shadowRadius = 4
+
     }
     
     // TextView以外の部分をタップするとキーボードが閉じる
