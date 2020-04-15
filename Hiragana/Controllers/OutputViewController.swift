@@ -14,6 +14,7 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
 
     @IBOutlet weak var outputTextView: UITextView!
     @IBOutlet weak var copyLabel: UILabel!
+    @IBOutlet weak var outShadowView: UIView!
     
     var hiraganaManager = HiraganaManager()
     override func viewDidLoad() {
@@ -21,6 +22,15 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
         
         hiraganaManager.delegate = self
         hiraganaManager.fetchHiragana(RequestWords: hiragana!)
+        
+        // 編集を不可にする
+        outputTextView.isEditable = false
+        
+        outShadowView.layer.cornerRadius = 10
+        outShadowView.layer.shadowColor = UIColor.black.cgColor
+        outShadowView.layer.shadowOffset = .zero
+        outShadowView.layer.shadowOpacity = 0.4
+        outShadowView.layer.shadowRadius = 4
     }
     
     @IBAction func reinputPressed(_ sender: UIButton) {

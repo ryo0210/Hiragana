@@ -11,7 +11,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var attentionLabel: UILabel!
-    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var inShadowView: UIView!
     
     var hiraganaManager = HiraganaManager()
     
@@ -21,20 +21,14 @@ class InputViewController: UIViewController, UITextViewDelegate {
         inputTextView.delegate = self
         
         // フォントのバグ対策
-        inputTextView.font = UIFont.systemFont(ofSize: 20.0)
+        inputTextView.font = UIFont.systemFont(ofSize: 18.0)
         
         inputTextView.clipsToBounds = true
-        shadowView.layer.cornerRadius = 10
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOffset = .zero
-        shadowView.layer.shadowOpacity = 0.3
-        shadowView.layer.shadowRadius = 4
-        //self.view.addSubview(shadowView)
-        //inputTextView.addSubview(shadowView)
-//        inputTextView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-//        inputTextView.layer.shadowColor = UIColor.black.cgColor
-//        inputTextView.layer.shadowOpacity = 0.6
-//        inputTextView.layer.shadowRadius = 4
+        inShadowView.layer.cornerRadius = 10
+        inShadowView.layer.shadowColor = UIColor.black.cgColor
+        inShadowView.layer.shadowOffset = .zero
+        inShadowView.layer.shadowOpacity = 0.5
+        inShadowView.layer.shadowRadius = 4
 
     }
     
