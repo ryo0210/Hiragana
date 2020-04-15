@@ -19,7 +19,7 @@ struct HiraganaManager {
     
     let hiraganaURL = "https://labs.goo.ne.jp/api/hiragana"
 
-    let app_id = "api"
+    let app_id = "67adc60cdbf63dfaea3cf13494fa0c3b11e3027a7ad9d878b80430b8ba700bb8"
     
     func fetchHiragana(RequestWords: String) {
         let url = URL(string: hiraganaURL)!

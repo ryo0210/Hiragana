@@ -10,9 +10,10 @@ import UIKit
 class InputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var attentionLabel: UILabel!
+    @IBOutlet weak var inShadowView: UIView!
     
     var hiraganaManager = HiraganaManager()
-    var hira: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,15 @@ class InputViewController: UIViewController, UITextViewDelegate {
         inputTextView.delegate = self
         
         // フォントのバグ対策
-        inputTextView.font = UIFont.systemFont(ofSize: 20.0)
+        inputTextView.font = UIFont.systemFont(ofSize: 18.0)
+        
+        inputTextView.clipsToBounds = true
+        inShadowView.layer.cornerRadius = 10
+        inShadowView.layer.shadowColor = UIColor.black.cgColor
+        inShadowView.layer.shadowOffset = .zero
+        inShadowView.layer.shadowOpacity = 0.5
+        inShadowView.layer.shadowRadius = 4
+
     }
     
     // TextView以外の部分をタップするとキーボードが閉じる
@@ -29,8 +38,15 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func convertPressed(_ sender: UIButton) {
-        inputTextView.endEditing(true)
-        performSegue(withIdentifier: "goToOutput", sender: self)
+        if inputTextView.text == "" {
+            attentionLabel.text = "なにかにゅうりょくしてください。"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.attentionLabel.text = ""
+            }
+        } else {
+            inputTextView.endEditing(true)
+            performSegue(withIdentifier: "goToOutput", sender: self)
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -46,4 +62,27 @@ class InputViewController: UIViewController, UITextViewDelegate {
             destinationVC.hiragana = inputTextView.text
         }
     }
+    @IBAction func trashPressed(_ sender: UIButton) {
+        if inputTextView.text == "" {
+            attentionLabel.text = "けすもじがありません。"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.attentionLabel.text = ""
+            }
+        } else {
+            inputTextView.text = ""
+        }
+    }
+    @IBAction func pastePressed(_ sender: UIButton) {
+        inputTextView.text = UIPasteboard.general.string
+        if inputTextView.text == "" {
+            attentionLabel.text = "ペーストするもじがありません。"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.attentionLabel.text = ""
+            }
+        } else {
+            inputTextView.endEditing(true)
+            performSegue(withIdentifier: "goToOutput", sender: self)
+        }
+    }
+    
 }
