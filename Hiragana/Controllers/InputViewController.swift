@@ -14,6 +14,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inShadowView: UIView!
     
     var hiraganaManager = HiraganaManager()
+    weak var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +41,30 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func convertPressed(_ sender: UIButton) {
         if inputTextView.text == "" {
             attentionLabel.text = "なにかにゅうりょくしてください。"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.attentionLabel.text = ""
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                self.attentionLabel.text = ""
+//            }
+            if self.timer == nil {
+                
+                print("timer")
+                self.timer = Timer.scheduledTimer(
+                    timeInterval: 3,
+                    target: self,
+                    selector: #selector(resetText),
+                    userInfo: nil,
+                    repeats: false
+                )
+            } else {
+                self.timer.invalidate()
+                self.timer = nil
+                self.timer = Timer.scheduledTimer(
+                    timeInterval: 3,
+                    target: self,
+                    selector: #selector(resetText),
+                    userInfo: nil,
+                    repeats: false
+                )
+                print("NO")
             }
         } else {
             inputTextView.endEditing(true)
@@ -83,6 +106,10 @@ class InputViewController: UIViewController, UITextViewDelegate {
             inputTextView.endEditing(true)
             performSegue(withIdentifier: "goToOutput", sender: self)
         }
+    }
+    
+    @objc func resetText() {
+        self.attentionLabel.text = ""
     }
     
 }
