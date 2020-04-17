@@ -11,6 +11,7 @@ import UIKit
 class OutputViewController: UIViewController, HiraganaManagerDelegate {
     
     var hiragana: String?
+    weak var timer: Timer!
 
     @IBOutlet weak var outputTextView: UITextView!
     @IBOutlet weak var copyLabel: UILabel!
@@ -40,9 +41,7 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
     @IBAction func copyPressed(_ sender: UIButton) {
         UIPasteboard.general.string = outputTextView.text
         copyLabel.text = "コピーしました。"
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.copyLabel.text = ""
-        }
+        copyTextDisplay()
     }
     
     
@@ -53,6 +52,34 @@ class OutputViewController: UIViewController, HiraganaManagerDelegate {
     }
         
     func didFailWithError(error: Error) {
-        print(error)
+        DispatchQueue.main.async {
+            self.copyLabel.text = "エラーがでました。"
+        }
+    }
+    
+    func copyTextDisplay() {
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(
+                timeInterval: 3,
+                target: self,
+                selector: #selector(resetText),
+                userInfo: nil,
+                repeats: false
+            )
+        } else {
+            self.timer.invalidate()
+            self.timer = nil
+            self.timer = Timer.scheduledTimer(
+                timeInterval: 3,
+                target: self,
+                selector: #selector(resetText),
+                userInfo: nil,
+                repeats: false
+            )
+        }
+    }
+    
+    @objc func resetText() {
+        self.copyLabel.text = ""
     }
 }
