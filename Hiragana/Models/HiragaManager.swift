@@ -57,6 +57,9 @@ struct HiraganaManager {
     
     func parseJSON(_ hiraganaData: Data) -> String? {
         let decoder = JSONDecoder()
+        
+        // プロパティの名前をsnake_caseからlowerCamelCaseにする。
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
             let decodeData = try decoder.decode(HiraganaData.self, from: hiraganaData)
             let responseWords = decodeData.converted

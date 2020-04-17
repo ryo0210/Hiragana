@@ -14,6 +14,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inShadowView: UIView!
     
     var hiraganaManager = HiraganaManager()
+    weak var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func convertPressed(_ sender: UIButton) {
         if inputTextView.text == "" {
             attentionLabel.text = "なにかにゅうりょくしてください。"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.attentionLabel.text = ""
-            }
+            attentionTextDisplay()
         } else {
             inputTextView.endEditing(true)
             performSegue(withIdentifier: "goToOutput", sender: self)
@@ -65,9 +64,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func trashPressed(_ sender: UIButton) {
         if inputTextView.text == "" {
             attentionLabel.text = "けすもじがありません。"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.attentionLabel.text = ""
-            }
+            attentionTextDisplay()
         } else {
             inputTextView.text = ""
         }
@@ -76,13 +73,37 @@ class InputViewController: UIViewController, UITextViewDelegate {
         inputTextView.text = UIPasteboard.general.string
         if inputTextView.text == "" {
             attentionLabel.text = "ペーストするもじがありません。"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.attentionLabel.text = ""
-            }
+            attentionTextDisplay()
         } else {
             inputTextView.endEditing(true)
             performSegue(withIdentifier: "goToOutput", sender: self)
         }
+    }
+    
+    func attentionTextDisplay() {
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(
+                timeInterval: 3,
+                target: self,
+                selector: #selector(resetText),
+                userInfo: nil,
+                repeats: false
+            )
+        } else {
+            self.timer.invalidate()
+            self.timer = nil
+            self.timer = Timer.scheduledTimer(
+                timeInterval: 3,
+                target: self,
+                selector: #selector(resetText),
+                userInfo: nil,
+                repeats: false
+            )
+        }
+    }
+    
+    @objc func resetText() {
+        self.attentionLabel.text = ""
     }
     
 }
